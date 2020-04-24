@@ -12,7 +12,7 @@ ext {
   profilesBranch = [
     'base': '3.3.x',
     'rest-api': '3.3.x',
-    'react': '3.0.x'
+    'react': '2.1.x'
   ]
   profiles = [
           'base',
