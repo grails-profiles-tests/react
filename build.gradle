@@ -9,6 +9,11 @@ ext {
   grailsCoreBranch = '3.3.x'
   grailsWrapperBranch = '1.0.x'
   profilesSlug = 'grails-profiles'
+  profilesBranch = [
+    'base': '3.3.x',
+    'rest-api': '3.3.x',
+    'react': '3.0.x'
+  ]
   profiles = [
           'base',
           'rest-api',
@@ -41,7 +46,7 @@ task cloneProfiles {
   doLast() {
     profiles.each { String profile ->
       def grgit = Grgit.clone(dir: "${buildDir}/${profile}".toString(),
-              uri: "https://github.com/${profilesSlug}/${profile}.git")
+              uri: "https://github.com/${profilesSlug}/${profile}.git", refToCheckout: profilesBranch.get(profile))
     }
   }
 }
